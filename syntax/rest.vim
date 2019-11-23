@@ -82,6 +82,12 @@ highlight link restKeyword Macro
 
 syntax match restComment '\v^\s*(#|//).*$'
 
+syn match HeaderType '\v^[a-zA-Z-]+: '
+" nextgroup=VarName skipwhite
+" syn match HeaderVal '\i\+' contained
+hi HeaderType ctermfg=yellow
+" hi VarName ctermfg=darkblue
+
 syn keyword VariableType set nextgroup=VarName skipwhite
 syn match VarName '\i\+' contained
 hi VariableType ctermfg=darkgreen
