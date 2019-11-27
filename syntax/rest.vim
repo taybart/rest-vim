@@ -89,5 +89,10 @@ syn match VarName '\i\+' contained
 hi VariableType ctermfg=darkgreen
 hi VarName ctermfg=darkblue
 
+syn keyword DelayType delay nextgroup=DelayValue skipwhite
+syn match DelayValue '\d\+\(ns\|us\|µs\|ms\|s\|m\|h\)' contained
+hi DelayType ctermfg=darkgreen
+hi DelayValue ctermfg=darkblue
+
 let b:current_syntax = 'rest'
 
