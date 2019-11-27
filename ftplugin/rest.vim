@@ -22,9 +22,9 @@ endfunction
 "
 function! RestMap()
   let triggerKey = s:GetOpt('rest_trigger', '<C-e>')
-  execute 'vnoremap <buffer> ' . triggerKey . ' :!rest -f %<CR>'
-  execute 'nnoremap <buffer> ' . triggerKey . ' :!rest -f %<CR>'
-  execute 'inoremap <buffer> ' . triggerKey . ' <Esc>:!rest -f %<CR>'
+  execute 'vnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
+  execute 'nnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
+  execute 'inoremap <buffer> ' . triggerKey . ' <Esc>:!rest -nc -f %<CR>'
 endfunction
 
 if s:GetOpt('rest_set_default_mapping', 1)
