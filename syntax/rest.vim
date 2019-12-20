@@ -51,7 +51,7 @@ hi def link restDocumentStart            PreProc
 " hi def link restDocumentEnd              PreProc
 
 syntax match restHost '\c\v^\s*HTTPS?\://\S+$'
-highlight link restHost Label
+hi def link restHost Label
 
 hi def link restFlowStringDelimiter      String
 hi def link restEscape                   SpecialChar
@@ -93,6 +93,9 @@ syn keyword DelayType delay nextgroup=DelayValue skipwhite
 syn match DelayValue '\d\+\(ns\|us\|µs\|ms\|s\|m\|h\)' contained
 hi DelayType ctermfg=darkgreen
 hi DelayValue ctermfg=darkblue
+
+syn keyword ExpectType expect
+hi def link ExpectType Special
 
 let b:current_syntax = 'rest'
 
