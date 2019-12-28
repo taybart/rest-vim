@@ -97,5 +97,8 @@ hi DelayValue ctermfg=darkblue
 syn keyword ExpectType expect
 hi def link ExpectType Special
 
+syn keyword LabelType label
+hi def link LabelType Special
+
 let b:current_syntax = 'rest'
 
