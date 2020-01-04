@@ -55,7 +55,7 @@ hi def link restComment                  Comment
 
 hi def link restKeywords                 Keyword
 
-hi def link restHost                     Constant
+hi def link restHost                     Underlined
 hi def link restHeader                   Type
 hi def link restDocumentStart            PreProc
 
