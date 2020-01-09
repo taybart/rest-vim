@@ -17,16 +17,28 @@ function! s:GetOpt(opt, defVal)
   return a:defVal
 endfunction
 
+function! ExecuteBlock()
+  let s:c = []
+  call map(getline(1, "."), { k,v -> substitute(v, '^---$', '\=add(s:c, v)[-1]', 'g')})
+  execute '!rest -nc -b ' . len(s:c) . ' -f %'
+endfunction
 """
 " Do the key map.
 "
 function! RestMap()
   let triggerKey = s:GetOpt('rest_trigger', '<C-e>')
-  execute 'vnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
-  execute 'nnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
-  execute 'inoremap <buffer> ' . triggerKey . ' <Esc>:!rest -nc -f %<CR>'
+  exe 'nnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
+  exe 'vnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
+  exe 'inoremap <buffer> ' . triggerKey . ' <Esc>:!rest -nc -f %<CR>'
+
+  let triggerBlockKey = s:GetOpt('rest_block_trigger', '<C-E>')
+  exe 'nnoremap <buffer> ' . triggerKey . ' :call ExecuteBlock()<CR>'
+  exe 'vnoremap <buffer> ' . triggerKey . ' :call ExecuteBlock()<CR>'
+  exe 'inoremap <buffer> ' . triggerKey . ' <Esc>:call ExecuteBlock()<CR>'
+
 endfunction
 
 if s:GetOpt('rest_set_default_mapping', 1)
   call RestMap()
 endif
+
