@@ -45,7 +45,7 @@ syn match variableName '\i\+' contained
 " For later when we need syntax highlighting in strings for variables
 " syntax region  jsTemplateString   start=+`+  skip=+\\`+  end=+`+     contains=jsTemplateExpression,jsSpecial,@Spell extend
 " syntax region  jsTemplateExpression contained matchgroup=jsTemplateBraces start=+${+ end=+}+ contains=@jsExpression keepend
-syn match restVariable '\v\$\{[a-zA-Z-]+\}'
+syn match restVariable '\v\$\{[a-zA-Z0-9-]+\}'
 
 syn keyword delayKeyword delay nextgroup=delayValue skipwhite
 syn match delayValue '\d\+\(ns\|us\|µs\|ms\|s\|m\|h\)' contained
