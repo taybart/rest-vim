@@ -35,7 +35,7 @@ syn keyword restKeywords
       \ label
       \ skip
 
-syntax match restMethod '\c\v^\s*(GET|POST|PUT|DELETE|HEAD|PATCH|OPTIONS|TRACE)\s'
+syntax match restMethod '\c\v^\s*(GET|POST|PUT|DELETE|HEAD|PATCH|OPTIONS|TRACE)\s?'
 
 syn match restHeader '\v^[a-zA-Z-]+: '
 
