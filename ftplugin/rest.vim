@@ -26,15 +26,15 @@ endfunction
 " Do the key map.
 "
 function! RestMap()
-  let triggerKey = s:GetOpt('rest_trigger', '<C-e>')
+  let triggerKey = s:GetOpt('rest_trigger', '<C-E>')
   exe 'nnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
   exe 'vnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
   exe 'inoremap <buffer> ' . triggerKey . ' <Esc>:!rest -nc -f %<CR>'
 
-  let triggerBlockKey = s:GetOpt('rest_block_trigger', '<C-E>')
-  exe 'nnoremap <buffer> ' . triggerKey . ' :call ExecuteBlock()<CR>'
-  exe 'vnoremap <buffer> ' . triggerKey . ' :call ExecuteBlock()<CR>'
-  exe 'inoremap <buffer> ' . triggerKey . ' <Esc>:call ExecuteBlock()<CR>'
+  let triggerBlockKey = s:GetOpt('rest_block_trigger', '<C-e>')
+  exe 'nnoremap <buffer> ' . triggerBlockKey . ' :call ExecuteBlock()<CR>'
+  exe 'vnoremap <buffer> ' . triggerBlockKey . ' :call ExecuteBlock()<CR>'
+  exe 'inoremap <buffer> ' . triggerBlockKey . ' <Esc>:call ExecuteBlock()<CR>'
 
 endfunction
 
