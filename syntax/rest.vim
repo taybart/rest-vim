@@ -39,13 +39,18 @@ syntax match restMethod '\c\v^\s*(GET|POST|PUT|DELETE|HEAD|PATCH|OPTIONS|TRACE)\
 
 syn match restHeader '\v^[a-zA-Z-]+: '
 
-syn keyword variableKeyword set nextgroup=variableName skipwhite
 syn match variableName '\i\+' contained
+syn keyword variableKeyword set nextgroup=variableName skipwhite
+
+syn keyword takeKeyword take nextgroup=runtimeVar skipwhite
+" syn match takeVar '\i\+' contained
+syn keyword takeAsKeyword as contained=runtimeVar skipwhite
+" syn match takeAsName /take \w\+ as/ skipwhite
 
 " For later when we need syntax highlighting in strings for variables
 " syntax region  jsTemplateString   start=+`+  skip=+\\`+  end=+`+     contains=jsTemplateExpression,jsSpecial,@Spell extend
 " syntax region  jsTemplateExpression contained matchgroup=jsTemplateBraces start=+${+ end=+}+ contains=@jsExpression keepend
-syn match restVariable '\v\$\{[a-zA-Z0-9-]+\}'
+syn match restVariable '\v\$\{[a-zA-Z0-9-_]+\}'
 
 syn keyword delayKeyword delay nextgroup=delayValue skipwhite
 syn match delayValue '\d\+\(ns\|us\|µs\|ms\|s\|m\|h\)' contained
@@ -62,6 +67,11 @@ hi def link restDocumentStart            PreProc
 hi def link variableKeyword              Typedef
 hi def link variableName                 Identifier
 hi def link restVariable                 Identifier
+
+hi def link takeKeyword                  Keyword
+hi def link takeAsKeyword                Keyword
+hi def link takeVar                      Type
+" hi def link takeAsName                   Identifier
 
 hi def link delayKeyword                 Typedef
 hi def link delayValue                   Identifier
