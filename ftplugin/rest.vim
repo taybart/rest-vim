@@ -26,7 +26,7 @@ endfunction
 " Do the key map.
 "
 function! RestMap()
-  let triggerKey = s:GetOpt('rest_trigger', '<c-w>')
+  let triggerKey = s:GetOpt('rest_trigger', '<c-E>')
   exe 'nnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
   exe 'vnoremap <buffer> ' . triggerKey . ' :!rest -nc -f %<CR>'
   exe 'inoremap <buffer> ' . triggerKey . ' <Esc>:!rest -nc -f %<CR>'
